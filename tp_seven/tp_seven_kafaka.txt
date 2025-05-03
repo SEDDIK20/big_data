@@ -1,0 +1,31 @@
+seddik@DESKTOP-B1FJGB6:~/tp_seven_kafka$ docker compose up -d
+[+] Running 2/2
+ ✔ Network tp_seven_kafka_default    Created                                                              0.1s 
+ ✔ Container tp_seven_kafka-kafka-1  Started                                                              1.0s 
+seddik@DESKTOP-B1FJGB6:~/tp_seven_kafka$ docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED          STATUS          PORTS                    NAMES
+b630a91785a6   bitnami/kafka:latest   "/opt/bitnami/script…"   11 seconds ago   Up 10 seconds   0.0.0.0:9092->9092/tcp   tp_seven_kafka-kafka-1
+seddik@DESKTOP-B1FJGB6:~/tp_seven_kafka$ docker exec -it tp_seven_kafka-kafka-1 kafka-topics.sh \
+  --create --topic iot-data \
+  --bootstrap-server localhost:9092
+Created topic iot-data.
+seddik@DESKTOP-B1FJGB6:~/tp_seven_kafka$ 
+
+ 
+
+
+
+
+انشاء اتصال topic 
+
+/opt/bitnami/kafka/bin/kafka-topics.sh --create --topic test-topic  --bootstrap-server localhost:9092 --partitions 3 --replication-factor 1
+
+
+
+
+/opt/bitnami/kafka/bin/kafka-console-producer.sh --bootstrap-server kafka-1:9092 --topic test-topic
+
+
+
+
+/opt/bitnami/kafka/bin/kafka-console-consumer.sh --bootstrap-server kafka-1:9092 --topic test-topic --from-beginning
