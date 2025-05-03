@@ -1,0 +1,297 @@
+Microsoft Windows [Version 10.0.19045.5737]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\ounz>C:\MongoDB\bin\mongo.exe
+MongoDB shell version: 2.6.4
+connecting to: test
+Welcome to the MongoDB shell.
+For interactive help, type "help".
+For more comprehensive documentation, see
+        http://docs.mongodb.org/
+Questions? Try the support group
+        http://groups.google.com/group/mongodb-user
+> help
+        db.help()                    help on db methods
+        db.mycoll.help()             help on collection methods
+        sh.help()                    sharding helpers
+        rs.help()                    replica set helpers
+        help admin                   administrative help
+        help connect                 connecting to a db help
+        help keys                    key shortcuts
+        help misc                    misc things to know
+        help mr                      mapreduce
+
+        show dbs                     show database names
+        show collections             show collections in current database
+        show users                   show users in current database
+        show profile                 show most recent system.profile entries with time >= 1ms
+        show logs                    show the accessible logger names
+        show log [name]              prints out the last segment of log in memory, 'global' is default
+        use <db_name>                set current database
+        db.foo.find()                list objects in collection foo
+        db.foo.find( { a : 1 } )     list objects in foo where a == 1
+        it                           result of the last line evaluated; use to further iterate
+        DBQuery.shellBatchSize = x   set default number of items to display on shell
+        exit                         quit the mongo shell
+> clear
+2025-04-16T20:19:59.857+0100 ReferenceError: clear is not defined
+>
+> db.help()
+DB methods:
+        db.adminCommand(nameOrDocument) - switches to 'admin' db, and runs command [ just calls db.runCommand(...) ]
+        db.auth(username, password)
+        db.cloneDatabase(fromhost)
+        db.commandHelp(name) returns the help for the command
+        db.copyDatabase(fromdb, todb, fromhost)
+        db.createCollection(name, { size : ..., capped : ..., max : ... } )
+        db.createUser(userDocument)
+        db.currentOp() displays currently executing operations in the db
+        db.dropDatabase()
+        db.eval(func, args) run code server-side
+        db.fsyncLock() flush data to disk and lock server for backups
+        db.fsyncUnlock() unlocks server following a db.fsyncLock()
+        db.getCollection(cname) same as db['cname'] or db.cname
+        db.getCollectionNames()
+        db.getLastError() - just returns the err msg string
+        db.getLastErrorObj() - return full status object
+        db.getMongo() get the server connection object
+        db.getMongo().setSlaveOk() allow queries on a replication slave server
+        db.getName()
+        db.getPrevError()
+        db.getProfilingLevel() - deprecated
+        db.getProfilingStatus() - returns if profiling is on and slow threshold
+        db.getReplicationInfo()
+        db.getSiblingDB(name) get the db at the same server as this one
+        db.getWriteConcern() - returns the write concern used for any operations on this db, inherited from server object if set
+        db.hostInfo() get details about the server's host
+        db.isMaster() check replica primary status
+        db.killOp(opid) kills the current operation in the db
+        db.listCommands() lists all the db commands
+        db.loadServerScripts() loads all the scripts in db.system.js
+        db.logout()
+        db.printCollectionStats()
+        db.printReplicationInfo()
+        db.printShardingStatus()
+        db.printSlaveReplicationInfo()
+        db.dropUser(username)
+        db.repairDatabase()
+        db.resetError()
+        db.runCommand(cmdObj) run a database command.  if cmdObj is a string, turns it into { cmdObj : 1 }
+        db.serverStatus()
+        db.setProfilingLevel(level,<slowms>) 0=off 1=slow 2=all
+        db.setWriteConcern( <write concern doc> ) - sets the write concern for writes to the db
+        db.unsetWriteConcern( <write concern doc> ) - unsets the write concern for writes to the db
+        db.setVerboseShell(flag) display extra information in shell output
+        db.shutdownServer()
+        db.stats()
+        db.version() current version of the server
+>
+>
+>
+> use firstdb
+switched to db firstdb
+>
+>
+> use info
+switched to db info
+>
+>
+>
+>
+>
+>
+>
+> db.produits.insert({
+...   nom: "Macbook Pro",
+...   fabriquant: "Apple",
+...   prix: 11435.99,
+...   options: ["Intel Core i5", "Retina Display", "Long life battery"]
+... })
+WriteResult({ "nInserted" : 1 })
+> db.produits.insert({
+...   nom: "Macbook Air",
+...   fabriquant: "Apple",
+...   prix: 125794.73,
+...   ultrabook: true,
+...   options: ["Intel Core i7", "SSD", "Long life battery"]
+... })
+WriteResult({ "nInserted" : 1 })
+> db.produits.insert({
+...   nom: "Thinkpad X230",
+...   fabriquant: "Lenovo",
+...   prix: 114358.74,
+...   ultrabook: true,
+...   options: ["Intel Core i5", "SSD", "Long life battery"]
+... })
+WriteResult({ "nInserted" : 1 })
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+> db.produits.find()
+{ "_id" : ObjectId("680006b8cee4e6ae79a1d215"), "nom" : "Macbook Pro", "fabriquant" : "Apple", "prix" : 11435.99, "options" : [ "Intel Core i5", "Retina Display", "Long life battery" ] }
+{ "_id" : ObjectId("68000852cee4e6ae79a1d216"), "nom" : "Macbook Air", "fabriquant" : "Apple", "prix" : 125794.73, "ultrabook" : true, "options" : [ "Intel Core i7", "SSD", "Long life battery" ] }
+{ "_id" : ObjectId("68000862cee4e6ae79a1d217"), "nom" : "Thinkpad X230", "fabriquant" : "Lenovo", "prix" : 114358.74, "ultrabook" : true, "options" : [ "Intel Core i5", "SSD", "Long life battery" ] }
+>
+>
+>
+>
+>
+> db.produits.findOne()
+{
+        "_id" : ObjectId("680006b8cee4e6ae79a1d215"),
+        "nom" : "Macbook Pro",
+        "fabriquant" : "Apple",
+        "prix" : 11435.99,
+        "options" : [
+                "Intel Core i5",
+                "Retina Display",
+                "Long life battery"
+        ]
+}
+>
+>
+>
+>
+>
+>
+> db.produits.find({ nom: "Thinkpad X230" })
+{ "_id" : ObjectId("68000862cee4e6ae79a1d217"), "nom" : "Thinkpad X230", "fabriquant" : "Lenovo", "prix" : 114358.74, "ultrabook" : true, "options" : [ "Intel Core i5", "SSD", "Long life battery" ] }
+>
+>
+>
+>
+>
+> db.produits.find({ prix: { $gt: 13723 } })
+{ "_id" : ObjectId("68000852cee4e6ae79a1d216"), "nom" : "Macbook Air", "fabriquant" : "Apple", "prix" : 125794.73, "ultrabook" : true, "options" : [ "Intel Core i7", "SSD", "Long life battery" ] }
+{ "_id" : ObjectId("68000862cee4e6ae79a1d217"), "nom" : "Thinkpad X230", "fabriquant" : "Lenovo", "prix" : 114358.74, "ultrabook" : true, "options" : [ "Intel Core i5", "SSD", "Long life battery" ] }
+>
+>
+>
+>
+>
+>
+> db.produits.findOne({ ultrabook: true })
+{
+        "_id" : ObjectId("68000852cee4e6ae79a1d216"),
+        "nom" : "Macbook Air",
+        "fabriquant" : "Apple",
+        "prix" : 125794.73,
+        "ultrabook" : true,
+        "options" : [
+                "Intel Core i7",
+                "SSD",
+                "Long life battery"
+        ]
+}
+>
+>
+>
+>
+> db.produits.find({ nom: /^Macbook/ })
+{ "_id" : ObjectId("680006b8cee4e6ae79a1d215"), "nom" : "Macbook Pro", "fabriquant" : "Apple", "prix" : 11435.99, "options" : [ "Intel Core i5", "Retina Display", "Long life battery" ] }
+{ "_id" : ObjectId("68000852cee4e6ae79a1d216"), "nom" : "Macbook Air", "fabriquant" : "Apple", "prix" : 125794.73, "ultrabook" : true, "options" : [ "Intel Core i7", "SSD", "Long life battery" ] }
+>
+>
+>
+>
+> db.produits.findOne({ nom: /Macbook/ })
+{
+        "_id" : ObjectId("680006b8cee4e6ae79a1d215"),
+        "nom" : "Macbook Pro",
+        "fabriquant" : "Apple",
+        "prix" : 11435.99,
+        "options" : [
+                "Intel Core i5",
+                "Retina Display",
+                "Long life battery"
+        ]
+}
+>
+>
+> db.produits.deleteMany({ fabriquant: "Apple" })
+2025-04-16T21:10:37.070+0100 TypeError: Property 'deleteMany' of object info.produits is not a function
+>
+>
+>
+>
+>
+> db.produits.remove({ fabriquant: "Apple" })
+WriteResult({ "nRemoved" : 2 })
+>
+>
+>
+>
+>
+>
+>
+> > db.produits.find()
+2025-04-16T21:18:17.823+0100 SyntaxError: Unexpected token >
+>  db.produits.find()
+{ "_id" : ObjectId("68000862cee4e6ae79a1d217"), "nom" : "Thinkpad X230", "fabriquant" : "Lenovo", "prix" : 114358.74, "ultrabook" : true, "options" : [ "Intel Core i5", "SSD", "Long life battery" ] }
+>
+>
+>
+>
+>
+>
+>
+>
+>
+> db.produits.deleteOne({ _id: ObjectId("68000862cee4e6ae79a1d217") })
+2025-04-16T21:19:32.156+0100 TypeError: Property 'deleteOne' of object info.produits is not a function
+> db.produits.remove({ _id: ObjectId("68000862cee4e6ae79a1d217") })
+WriteResult({ "nRemoved" : 1 })
+>
+>
+>
+>
+>
+>
+>
+> db.produits.find()
+> db.produits.find()
+>

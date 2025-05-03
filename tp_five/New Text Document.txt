@@ -1,0 +1,57 @@
+C:\MongoDB\bin\mongod.exe
+تشغيل خادم المنقو 
+
+C:\MongoDB\bin\mongo.exe
+تشغيل العميل وبدأ العمل وبدأ انشأالقواعد والعمل عليها
+
+help 
+لطباعة قائمة المساعدة الموجودة للأختيار منه والعمل بها لحل المشاكل
+
+use firstdb
+ انشاء القاعدة هو في الحقيقة ها الطلب يعني استعمل القاعدة الفلانية واذا لم يجدها راح يدرلها انشاء تلقائي
+
+
+db.produits.insert({
+  nom: "Macbook Pro",
+  fabriquant: "Apple",
+  prix: 11435.99,
+  options: ["Intel Core i5", "Retina Display", "Long life battery"]
+})
+
+تقوم بأنشاء البردوي في القاعدة المنشأة سابقا واضافة المعلومات اليها
+
+db.produits.find()
+احضار المنتجات الكل 
+
+db.produits.findOne()
+احضار المنتج الأول
+
+
+db.produits.find({ nom: "Thinkpad X230" })
+البحث ب الأسم 
+
+
+db.produits.find({ prix: { $gt: 13723 } })
+اجاد العناصر التى ثمنها أكبر من 13723 
+
+db.produits.findOne({ ultrabook: true })
+اضافة الخاصي  ultrabook: true  الى أول عنصر موجود في القائمة 
+
+db.produits.findOne({ nom: /Macbook/ })
+أول منتج في اسمه Macbook
+
+
+db.produits.find({ nom: /^Macbook/ })
+Macbookطباعة اول عنصر يبدا اسمه ب
+
+
+db.produits.remove({ fabriquant: "Apple" })
+حذف المنتجات الي تحتوي على fabriquant: "Apple"
+
+db.produits.deleteOne({ _id: ObjectId("68000862cee4e6ae79a1d217") })
+68000862cee4e6ae79a1d217 حذف المنتج ذو الايدي 
+
+
+
+
+
